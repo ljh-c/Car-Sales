@@ -17,16 +17,8 @@ const initialState = {
 
 export const featuresReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case 'ADD_MEMBER':
-    //   return {
-    //     ...state,
-    //     members: [
-    //       ...state.members,
-    //       { name: action.payload, dragonStatus: false }
-    //     ]
-    //   };
-    case 'ADD_FEATURE':
-      console.log('hi!');
+    case 'BUY_FEATURE':
+      console.log('hi from reducer');
       return {
         ...state,
         car: {
@@ -38,8 +30,14 @@ export const featuresReducer = (state = initialState, action) => {
         }
       };
 
-    // case REMOVE_FEATURE:
-    //   return state;
+    case 'REMOVE_FEATURE':
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: state.car.features.filter(feature => feature.id !== action.payload)
+        }
+      };
 
     default:
       return state;

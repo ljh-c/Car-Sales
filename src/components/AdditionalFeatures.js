@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AdditionalFeature from './AdditionalFeature';
 import { buyFeature } from '../actions/featuresActions';
+import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
   return (
@@ -30,3 +30,4 @@ export default connect(
   mapStateToProps,
   { buyFeature }
 )(AdditionalFeatures);
+// each field of the mapDispatchToProps object is assumed to be an action creator
