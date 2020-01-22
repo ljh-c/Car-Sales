@@ -25,9 +25,10 @@ export const featuresReducer = (state = initialState, action) => {
           ...state.car,
           features: [
             ...state.car.features,
-            state.additionalFeatures.find(feature => feature.id === action.payload)
+            action.payload
           ]
-        }
+        },
+        additionalPrice: state.additionalPrice + action.payload.price
       };
 
     case 'REMOVE_FEATURE':
@@ -35,8 +36,9 @@ export const featuresReducer = (state = initialState, action) => {
         ...state,
         car: {
           ...state.car,
-          features: state.car.features.filter(feature => feature.id !== action.payload)
-        }
+          features: state.car.features.filter(feature => feature.id !== action.payload.id)
+        },
+        additionalPrice: state.additionalPrice - action.payload.price
       };
 
     default:

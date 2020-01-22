@@ -1,8 +1,8 @@
 // action creator
-export const buyFeature = (featureId) => {
+export const buyFeature = (feature) => {
   // action object
   console.log('hello from action creator');
-  return { type: 'BUY_FEATURE', payload: featureId };
+  return { type: 'BUY_FEATURE', payload: feature };
 }
 
 export const removeFeature = (featureId) => {
