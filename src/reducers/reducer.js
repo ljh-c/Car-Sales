@@ -15,6 +15,24 @@ const initialState = {
   ]
 };
 
+const minivanState = {
+  additionalPrice: 0,
+  car: {
+    price: 2639,
+    name: 'Mom\'s Minivan',
+    image:
+      'https://17kwo31takqarktfu433l181-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/2016-Dodge-Grand-Caravan-Family-Car-793x350.jpg',
+    features: []
+  },
+  additionalFeatures: [
+    { id: 1, name: 'Batmobile mode', price: 15000 },
+    { id: 2, name: 'All-wheel drive', price: 1400 },
+    { id: 3, name: 'Apple CarPlay', price: 480 },
+    { id: 4, name: 'Leather seats', price: 1500 },
+    { id: 5, name: 'Blizzard pearl color', price: 425}
+  ]
+};
+
 export const featuresReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'BUY_FEATURE':
@@ -45,6 +63,13 @@ export const featuresReducer = (state = initialState, action) => {
           action.payload
         ]
       };
+
+    case 'MINIVAN':
+      console.log('hi minivan');
+      return minivanState;
+
+    case 'MUSTANG':
+      return initialState;
 
     default:
       return state;

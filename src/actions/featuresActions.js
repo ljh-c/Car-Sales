@@ -8,3 +8,12 @@ export const buyFeature = (feature) => {
 export const removeFeature = (featureId) => {
   return { type: 'REMOVE_FEATURE', payload: featureId };
 }
+
+export const minivan = () => {
+  console.log('hello minivan');
+  return { type: 'MINIVAN' }
+}
+
+export const mustang = () => {
+  return { type: 'MUSTANG' }
+}
