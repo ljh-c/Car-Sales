@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { buyFeature } from '../actions/featuresActions';
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
@@ -8,7 +10,7 @@ const AdditionalFeatures = props => {
       {props.additionalFeatures.length ? (
         <ol type="1">
           {props.additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+            <AdditionalFeature key={item.id} feature={item} buyFeature={props.buyFeature} />
           ))}
         </ol>
       ) : (
@@ -18,4 +20,14 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+const mapStateToProps = state => {
+  return {
+    additionalFeatures: state.additionalFeatures
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  { buyFeature }
+)(AdditionalFeatures);
+// each field of the mapDispatchToProps object is assumed to be an action creator
